@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Gorbyoyo Translator</title>
+		<style>
+			body {background-color: rgb(37, 39, 39); text-align: center; font-family: Verdana, Geneva, Tahoma, sans-serif; margin-top: 10%; margin-left: 10%; margin-right: 10%;}
+			h1   {color: rgb(131, 241, 255);}
+			p    {color:  rgb(131, 241, 255);}
+		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		
+		<script>
+			$(document).ready(function(){
+				//When the submit button is clicked, get the user input
+				$(document).on('keypress',function(e) {
+					if(e.which == 13) {
+						var uInput = $('#userInput').val();
+						//strip out anything non-letter
+						uInput = uInput.replace(/[ .,\/#!$%\^&\*;:{}=\-_`~()]/g,"")
+						//send it in a post request back to the server
+						$.post("/translate", { input : uInput },
+						function(data, status){
+							//take the server's response and write it to the "output"
+							$("#output").html('<b>'+data+'<b>');
+						});
+					}
+				}); 
+			});
+		</script>
+	</head>
+	<body>
+		<h1>. . .</h1>
+		<h1 name = 'output' id = 'output'></h1>
+		<h1>. . .</h1>
+		<input type="text" id="userInput" name="userInput" size="100" placeholder="Enter translation text"><br>
+		<p>Press Enter</p>
+		
+	</body>
+</html>

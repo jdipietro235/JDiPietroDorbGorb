@@ -1,0 +1,19 @@
+{
+  "name": "careadvisors",
+  "version": "1.0.0",
+  "description": "Coding Test for CodeAdvisors",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Justin DiPietro",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "selenium-webdriver": "^4.0.0-alpha.7"
+  }
+}

@@ -1,0 +1,73 @@
+CareAdvisors Junior Software Developer Code Test!
+	Intro
+		Hi, potential teammate! Thanks for showing interest in CareAdvisors and our mission. In this part of the
+		interview process, we want to test out your technical chops. We care more about your thinking process more
+		than getting to the optimal, most efficient solution (or even a solution at all!). Below are instructions for our
+		code test.
+		This test should not take more than 10 hours to complete.
+
+	Story
+		Due to a glitch in the newly released Teleportron 5500, what should have been a quick trip to Chipotle has
+		turned into you (and your rumbling stomach) landing in a distant, sandy planet called "Gorbyoyo" with unhappy
+		inhabitants. 
+		The planet's inhabitants, Gorbyoyos, a human-like creature who walks backwards, have recently
+		been bombarded with interstellar solicitors hawking Cutko knives, and are no longer taking kindly to strangers.
+		The Gorbyoyo's have spotted you and are walking backwards towards you. 
+		Fortunately, because walking backwards is so inefficient and they frequently bump into each other as their closing in on you, 
+		this gives you enough time to create a translator to let the Gorbyoyo's that you come in peace. 
+		You have two tools at your disposal: 
+		an interstellar API that let's you translate English to a language similar to Gorbyoyo called Dorbdorb and a guide that translates Dorbdorb to Gorbyoyo.
+
+	Your goal is to
+		Create a full stack web application
+		Read and understand the instructions to translate a string of Dorbdorb to Gorbyoyo
+		Create a function that calls the interstellar Dorbdorb translation API that takes an English string as an
+
+	Input
+		Using Dorbdorb to Gorbyoyo translation guidelines, code in a function to translate the payload
+		Check with the translation verification API to make sure the translation is correct
+		Output the correct translation to the screen using a specific style that Gorboyoyo's can only read
+		Gorbyoyos can only read large, brightly-colored, centered text on a dark background
+		Store the correct translation in a database so that if you refresh the page, you can still display the correct translation
+
+	Which technologies to use
+		Use whatever tools/languages/libraries you're most comfortable with
+		We care about your problem-solving thought-process more than the specific technology you use
+
+	What to submit
+		Upload your solution onto Github
+		Include documentation wherever you think is necessary
+		Include steps to reproduce project locally, including creating the database
+		Front-end OR back-end tests (your choice)
+
+	Translation Instructions
+		The response you get when you hit the Dorbdorb API is an array of strings. 
+			Ex.[<INTEGER_A><ALPHA_1><INTEGER_B>, <INTEGER_A><ALPHA_2><INTEGER_B>,...,<INTEGER_A><ALPHA_N><INTEGER_B>]
+		Each string will have this structure: <INTEGER_A><ALPHA><INTEGER_B>
+		To translate Dorbdorb to Gorbyoyo, 
+			sum INTEGER_A and INTEGER_B 
+			concatenate with <ALPHA>yo
+			So <INTEGER_A><ALPHA><INTEGER_B> translates to
+		<ALPHA>yo<SUM_OF_INTEGER_A_AND_B> . 
+		
+		Ex. Gorbyoyo 10L13 translates to Lyo23
+
+		Each <INTEGER> has two or three digits, and each <ALPHA> has one letter
+		
+		Submit the translation as a string to the verification endpoint for validation. 
+		If it's validated, then display	the correct translation on the screen
+		The phrase that you want to communicate to the Gorbyoyo's is "i am not selling knives".
+		Input English string should be all LOWERCASE and have no punctuation.
+
+	Endpoints
+		Translate from English to Dorbdorb: 
+			https://72exx40653.execute-api.us-east-1.amazonaws.com/prod/translateEnglishToAlien
+		POST with body { textToTranslate: "TEXT" } , where textToTranslate is a string
+		Response will be either error message or array
+		Verify Gorbyoyo translation: 
+			https://72exx40653.execute-api.us-east-1.amazonaws.com/prod/confirmtranslation
+		POST with body { textToVerify: "TEXT" } , where textToVerify is a string
+		Response will be either "Invalid Translation" or "Success" . Both are strings
+
+Please email pradeep@care-advisors.com if you have any questions or
+if anything is unclear
